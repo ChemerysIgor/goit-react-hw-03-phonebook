@@ -17,10 +17,9 @@ export class App extends Component  {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
   ],
   filter: '',
- 
-};
-
-  componentDidMount() {
+  };
+  
+componentDidMount() {
     console.log('App componentDidMount')
     
     const getContact = localStorage.getItem("contacts");
@@ -36,7 +35,7 @@ export class App extends Component  {
       localStorage.setItem('contacts',JSON.stringify(this.state.contacts))
     }
   }
-  
+
   addContact = (contact) => {
     const inContact = this.state.contacts.some(item => {
       console.log(item)
@@ -66,7 +65,6 @@ export class App extends Component  {
   render() {
    
     const filterData = (evt) => {
-    console.log(evt.target.value)
     this.setState({ filter: evt.target.value })
     }
     const contactsAfterFilter = this.filteredContacts()
@@ -87,3 +85,7 @@ export class App extends Component  {
     )
   }
 }
+
+
+
+
