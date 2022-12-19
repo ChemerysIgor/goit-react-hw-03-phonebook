@@ -19,23 +19,25 @@ export class App extends Component  {
   filter: '',
   };
   
-componentDidMount() {
-    console.log('App componentDidMount')
-    
-    const getContact = localStorage.getItem("contacts");
-    const parseContact = JSON.parse(getContact);
-    console.log(parseContact)
-    if (this.state.contacts !== null) { this.setState({ contacts : parseContact }) } else { this.setState({contacts : []})}
-  }
-  
+
   componentDidUpdate(prevProps, prevState) {
     console.log( 'App componentDidUpdate')
     if (this.state.contacts !== prevState.contacts) {
-      console.log(this.state.contacts )
+      console.log(this.state.contacts)
       localStorage.setItem('contacts',JSON.stringify(this.state.contacts))
     }
   }
-
+  
+componentDidMount() {
+    console.log('App componentDidMount')
+        const getContact = localStorage.getItem("contacts");
+    const parseContact = JSON.parse(getContact);
+    console.log(parseContact)
+  if (this.state.contacts !== null) {
+    this.setState({ contacts: parseContact });
+console.log(this.state.contacts)  } else { this.setState({ contacts: [] }) }
+  }
+  
   addContact = (contact) => {
     const inContact = this.state.contacts.some(item => {
       console.log(item)
@@ -58,7 +60,8 @@ componentDidMount() {
   }
 
      filteredContacts = () => {
-    const normalizedFilter = this.state.filter.toLowerCase();
+       const normalizedFilter = this.state.filter.toLowerCase();
+       console.log(this.state.contacts)
     return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
 }
     
