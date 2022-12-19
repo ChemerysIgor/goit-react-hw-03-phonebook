@@ -35,7 +35,7 @@ export class App extends Component {
     console.log(parseContact)
     if (parseContact) {
       this.setState({ contacts: parseContact })
-    }
+    } else {localStorage.setItem('contacts', JSON.stringify(this.state.contacts))}
   }
   
     addContact = (contact) => {
