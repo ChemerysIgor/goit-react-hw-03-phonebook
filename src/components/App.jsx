@@ -66,6 +66,7 @@ export class App extends Component  {
   render() {
    
     const filterData = (evt) => {
+    console.log(evt.target.value)
     this.setState({ filter: evt.target.value })
     }
     const contactsAfterFilter = this.filteredContacts()
